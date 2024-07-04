@@ -1,0 +1,12 @@
+[
+    {"MovieID": 1, "Title": "Inception", "Rating": 8.7, "RatingDate": "2024-01-15"},
+    {"MovieID": 2, "Title": "The Matrix", "Rating": 8.8, "RatingDate": "2024-02-20"},
+    {"MovieID": 3, "Title": "Interstellar", "Rating": 8.7, "RatingDate": "2024-03-10"},
+    {"MovieID": 11, "Title": "The Irishman", "Rating": 7.9, "RatingDate": "2024-04-05"},
+    {"MovieID": 12, "Title": "Parasite", "Rating": 8.6, "RatingDate": "2024-05-25"},
+    {"MovieID": 13, "Title": "Joker", "Rating": 8.5, "RatingDate": "2024-06-18"},
+    {"MovieID": 14, "Title": "1917", "Rating": 8.3, "RatingDate": "2024-07-22"},
+    {"MovieID": 15, "Title": "Avengers: Endgame", "Rating": 8.4, "RatingDate": "2024-08-30"},
+    {"MovieID": 16, "Title": "Tenet", "Rating": 7.8, "RatingDate": "2024-09-12"},
+    {"MovieID": 17, "Title": "Dune", "Rating": 8.2, "RatingDate": "2024-10-01"}
+]
