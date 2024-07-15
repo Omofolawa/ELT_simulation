@@ -1,43 +1,59 @@
-# ETL_simulation
-End-to-End ETL Pipeline Implementation
-### ETL Project Summary
+# ELT Project: Sales Data Transformation
 
-This repository contains an end-to-end ETL project that demonstrates my expertise in data engineering, including data validation, cleansing, transformation, and visualization. The project utilizes Azure Data Factory, Azure SQL Database, and Tableau to process and visualize movie rating data from diverse sources such as CSV, JSON, and XML files.
+This project focuses on extracting, transforming, and loading (ETL) daily sales transaction data into a structured format suitable for business analytics and reporting. The process involves using SQL Server Integration Services (SSIS) to automate the data pipeline.
 
-#### Key Features:
-1. **Data Validation and Cleansing**:
-    - Ensured data integrity and consistency by validating data types, checking for missing values, and removing duplicates.
-    - Standardized formats and handled missing values using various imputation methods.
+## Project Overview
 
-2. **Data Transformation**:
-    - Implemented robust ETL processes using Azure Data Factory pipelines to extract, transform, and load data.
-    - Utilized Azure Data Factory's Data Flow for real-time data transformation and cleansing.
-    - Applied normalization techniques and created summary tables for aggregated data analysis.
+The ELT process aims to:
+- Extract raw sales transaction data from CSV files.
+- Load the extracted data into a SQL Server database.
+- Transform the data to calculate total sales amounts, derive customer names, and normalize product information.
+- Load the transformed data into a data warehouse for analytical purposes.
 
-3. **Data Loading**:
-    - Designed and implemented database schemas in Azure SQL Database to store structured and semi-structured data.
-    - Indexed key columns to enhance query performance and data retrieval efficiency.
+## Tools and Technologies Used
 
-4. **Data Visualization**:
-    - Connected Tableau to Azure SQL Database for interactive data visualization.
-    - Created dashboards to visualize movie rating trends, user activities, and other key metrics.
+- **SQL Server**: For storing and managing the relational database.
+- **SSIS (SQL Server Integration Services)**: For ETL operations including data extraction, transformation, and loading.
+- **SQL Data Warehouse**: For hosting the data warehouse optimized for analytics.
+- **Power BI**: For creating visualizations and reports based on the transformed data.
 
-5. **Documentation**:
-    - Provided detailed documentation of the ETL process, including data extraction, transformation rules, and loading strategies.
-    - Included a user guide for navigating and interacting with Tableau dashboards.
+## Project Structure
 
-#### Advanced Features:
-- **Real-Time Data Processing**: Set up Azure Stream Analytics for processing streaming data.
-- **Machine Learning Integration**: Incorporated predictive analytics using Azure Machine Learning and scikit-learn.
+- **Data Source**: CSV files containing daily sales transactions (`sales_data.csv`).
+- **Staging Area**: Temporary storage within SQL Server for initial data ingestion.
+- **Data Warehouse**: SQL Data Warehouse for storing transformed data.
+- **Reporting**: Power BI for visualizing sales trends and insights.
 
-This project showcases my proficiency in SQL for data querying and infrastructure, Python for data manipulation, and the use of cloud resources for scalable and efficient data processing. It also highlights my ability to implement agile methodologies, ensuring continuous improvement and adaptability throughout the project lifecycle.
+## Steps to Run the ELT Project
 
-#### Repository Structure:
-- **/data**: Contains raw data files in CSV, JSON, and XML formats.
-- **/scripts**: Includes Python scripts for data validation, cleansing, and transformation.
-- **/azure_pipelines**: Azure Data Factory pipeline configurations.
-- **/sql_schemas**: SQL scripts for creating and indexing database tables.
-- **/tableau**: Tableau workbook files for data visualization.
-- **/docs**: Comprehensive documentation of the ETL process and user guide.
+1. **Create Database and Tables**:
+   - Use SQL scripts (`create_tables.sql`) provided in the repository to create necessary tables in SQL Server.
 
-This ETL project is a testament to my journey from a biochemistry background to becoming a proficient data engineer, leveraging my experience in pharmaceutical manufacturing quality control and quality assurance to ensure data accuracy and reliability.
+2. **Configure SSIS Packages**:
+   - Open SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to create SSIS packages (`sales_etl.dtsx`).
+   - Design packages to extract data from CSV files, transform using T-SQL queries for calculating `TotalPrice`, deriving customer names, and normalizing product information, and load into staging tables.
+
+3. **Execute the SSIS Packages**:
+   - Run SSIS packages to execute the ETL process:
+     - Extract data from CSV files.
+     - Transform data as per business rules.
+     - Load transformed data into staging tables.
+
+4. **Load Data into Data Warehouse**:
+   - Use Azure SQL Data Warehouse or another data warehousing solution to load the data from staging tables (`load_into_dw.sql`).
+
+5. **Validate and Test**:
+   - Perform data validation and quality checks to ensure accuracy and completeness.
+   - Test the entire ETL process end-to-end to verify functionality.
+
+6. **Automation and Scheduling**:
+   - Configure SSIS packages for automation to run daily or as scheduled.
+   - Monitor and maintain the ETL pipeline for ongoing data integration and transformation.
+
+7. **Reporting and Visualization**:
+   - Connect Power BI to Azure SQL Data Warehouse.
+   - Create reports and dashboards to visualize sales trends, customer behavior, and product performance.
+
+## Contributors
+
+- **Omofolawa A-Adeniran**: Project Lead and Developer
