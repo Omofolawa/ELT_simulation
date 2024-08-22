@@ -1,0 +1,11 @@
+OrderID,CustomerID,ProductName,Quantity,Price,Country
+1,1001,Laptop,2,1000,USA
+2,1002,Mobile Phone,5,500,UK
+3,1003,Tablet,3,300,USA
+4,1004,Desktop,1,1200,Canada
+5,1001,Laptop,1,1000,USA
+6,1005,Headphones,10,50,Germany
+7,1002,Mobile Phone,3,500,UK
+8,1006,Monitor,2,200,USA
+9,1007,Keyboard,5,30,USA
+10,1003,Tablet,4,300,UK
