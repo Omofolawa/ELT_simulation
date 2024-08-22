@@ -1,0 +1,57 @@
+Business Requirements for ETL Pipeline Using Azure Data Factory
+
+The business requirement outlines the transformation processes and the goals for managing and analyzing the orders and customers' datasets. 
+The objective is to perform ETL operations on data from multiple sources to generate insights, such as total sales per country, customer information 
+associated with orders, and segmented data based on sales performance.
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Data Sources
+
+Dataset 1: Orders
+- The Orders dataset contains records of customer orders, including the product name, quantity, price, and the customer’s country.
+
+Dataset 2: Customers
+- The Customers dataset contains customer information such as CustomerID, CustomerName, and ContactEmail.
+
+Business Requirements:
+
+1. Filter Orders by Country**
+- The company needs to analyze sales performance specifically for orders placed by customers in the USA.
+- Requirement: Only extract and analyze orders where the `Country` column in the Orders dataset is 'USA'.
+
+2. Calculate Total Amount for Each Order
+- For each order, the total amount spent should be calculated by multiplying the `Quantity` by the `Price`.
+- Requirement: Introduce a new column `TotalAmount` that holds the calculated value of `Quantity * Price`. This will be used for further financial analysis and reporting.
+
+3. Aggregate Total Sales by Country
+- The business requires a report of total sales for each country to help identify key markets and trends.
+- Requirement: Aggregate the total sales amount by country by summing up the `TotalAmount` of all orders for each country.
+
+4. Sort Total Sales in Descending Order
+- To highlight the highest-grossing countries, the total sales data needs to be sorted in descending order.
+- Requirement: Sort the total sales data based on the `TotalSales` value, from highest to lowest, to prioritize analysis and reporting.
+
+5. Join Orders with Customer Information
+- Customer data needs to be linked to orders for customer engagement, marketing, and personalized communication.
+- Requirement: Perform a Join between the Orders and Customers datasets on the `CustomerID` field to bring in customer details (e.g., CustomerName, ContactEmail) alongside their respective orders.
+
+6. Split Orders Based on Sales Performance
+- High-value orders: Orders where the `TotalAmount` exceeds 1000.
+- Low-value orders: Orders where the `TotalAmount` is 1000 or less.
+- Requirement: Perform a **Conditional Split** to divide the orders into two streams:
+  - Stream 1: Orders where `TotalAmount > 1000` (high-value orders).
+  - Stream 2: Orders where `TotalAmount <= 1000` (low-value orders).
+  
+
+7. Delivering the Data for Reporting and Analysis
+- After performing the necessary transformations, the final data will be used for reporting, marketing, and business intelligence purposes.
+- Requirement: The transformed data must be loaded into appropriate destinations for reporting, such as:
+  - Azure SQL Database for easy access by analysts and business intelligence tools.
+  - Azure Data Lake for long-term storage, where data scientists and other business units can perform more advanced analytics.
+
+8. Maintain Data Integrity and Quality
+- The business emphasizes the need to maintain data quality throughout the ETL process to ensure accurate reporting and insights.
+- Requirement: The ETL pipeline must include error handling mechanisms, data validation rules, and logging to ensure data accuracy, completeness, and consistency.
+
+This ETL design will provide a clear pathway for transforming raw data into meaningful insights, ensuring accurate reporting, optimized performance, and secure data management.
